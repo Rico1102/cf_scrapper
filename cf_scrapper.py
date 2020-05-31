@@ -84,8 +84,8 @@ def find_accepted_solutions(soup , list_of_ids , file):
 		if(row.find('td' , {'class' : 'status-cell'}).find('span')['submissionverdict'] == 'OK'):
 			cnt += 1
 			fetch_accepted_code(row , list_of_ids , file)
-		if cnt == 2:
-			break
+		# if cnt == 2:
+		# 	break
 
 def get_max_pageno(url):
 	soup = fetch_data(url)
@@ -120,7 +120,7 @@ def main():
 		page_url = final_url + '/page/' + str(i)
 		soup = fetch_data(page_url)
 		find_accepted_solutions(soup , list_of_ids , file)
-		break
+		# break
 	file.close()
 
 
