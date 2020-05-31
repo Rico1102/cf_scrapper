@@ -21,14 +21,14 @@ python cf_scrapper.py
 	A local Folder is created with the handle_name which will store all the accepted results,\
 	Folder Structure\
 	handle_name\
-		|
+		|\
 		|--Contest-Number\
-			|
+			|\
 			|--Problem No - Problem Name\
-				|
+				|\
 				|--Accepted Solution(Latest)\
---**Only Supports C++ submissions**\
+--**Only Supports C++ submissions**
 
 
 ## Features to be added
---**Upload to Github Repo**\
+--**Upload to Github Repo**
