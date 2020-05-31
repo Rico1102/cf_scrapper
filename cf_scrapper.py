@@ -11,7 +11,6 @@ def fetch_data(url):
 	"""
 	Fetch HTML data from the given url
 	"""
-	print("Fetching Data from " , url)
 	content = requests.get(url)
 	soup = BeautifulSoup(content.text , 'html.parser')
 	return soup
@@ -29,7 +28,6 @@ def save_local(number , name , code , lang='cpp'):
 	os.chdir(req_dir)
 	name += '.' + lang
 	req_dir = os.path.join(req_dir , name)
-	# print(req_dir)
 	if os.path.exists(req_dir):
 		os.chdir(curr_dir)
 		return
@@ -46,12 +44,12 @@ def fetch_accepted_code(row , list_of_ids , file):
 	"""
 	Fetch the accepted solutions
 	"""
-	print("Fetching Accepted Solutions")
 	id_cell = row.find('td' , {'class' : 'id-cell'})
 	id = id_cell.get_text().strip()
-	file.write(id)
-	if id in list_of_ids:
-		return
+	file.append(id)
+	for p_id in list_of_ids:
+		if(p_id.strip('\n') == id):
+			return
 	td_cols = row.find_all('td' , {'class' : 'status-small'})
 	problem_name = None
 	for td in td_cols:
@@ -59,7 +57,7 @@ def fetch_accepted_code(row , list_of_ids , file):
 		if anchorTag is not None:
 			problem_no = anchorTag['href'].split('/')[2]
 			problem_name = problem_no + anchorTag.get_text().strip()
-	print(problem_no , problem_name , sep = ' ')
+	print(problem_name)
 	final_url = SUBMISSION_BASE_URL + problem_no + '/submission/' + id
 	soup = fetch_data(final_url)
 	code_area = soup.find('pre')
@@ -73,7 +71,6 @@ def find_accepted_solutions(soup , list_of_ids , file):
 	"""
 	Find the accepted solutions
 	"""
-	print("Finding Accepted Solutions")
 	sol_table = soup.find('table' , {'class' : 'status-frame-datatable'})
 	rows = sol_table.find_all('tr')
 	cnt = 0 
@@ -114,13 +111,16 @@ def main():
 	file.close()
 	final_url = BASE_URL + handle_name
 	max_pages = get_max_pageno(final_url)
-	print(max_pages)
-	file = open('idlist.txt' , 'w')
+	n_file = []
 	for i in range(int(max_pages) , 0 , -1):
+		print('Downloading Solutions page ' , int(max_pages) - i + 1 , '/' , max_pages , sep = '')
 		page_url = final_url + '/page/' + str(i)
 		soup = fetch_data(page_url)
-		find_accepted_solutions(soup , list_of_ids , file)
-		# break
+		find_accepted_solutions(soup , list_of_ids , n_file)
+		break
+	file = open('idlist.txt' , 'w')
+	for id in n_file:
+		file.write(id+'\n')
 	file.close()
 
 
