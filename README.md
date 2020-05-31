@@ -15,7 +15,7 @@ To run the scrapper
 python cf_scrapper.py
 ```
 
-###Current Features
+## Current Features
 --**Creates a local folder with handle_name**
 	handle_name is required as the input(Case Sensitive)
 	A local Folder is created with the handle_name which will store all the accepted results,
@@ -30,5 +30,5 @@ python cf_scrapper.py
 --**Only Supports C++ submissions**
 
 
-###Features to be added
+## Features to be added
 --**Upload to Github Repo**
