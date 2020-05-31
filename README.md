@@ -16,19 +16,19 @@ python cf_scrapper.py
 ```
 
 ## Current Features
---**Creates a local folder with handle_name**
-	handle_name is required as the input(Case Sensitive)
-	A local Folder is created with the handle_name which will store all the accepted results,
-	Folder Structure
-	handle_name
+--**Creates a local folder with handle_name**\
+	handle_name is required as the input(Case Sensitive)\
+	A local Folder is created with the handle_name which will store all the accepted results,\
+	Folder Structure\
+	handle_name\
 		|
-		|--Contest-Number
+		|--Contest-Number\
 			|
-			|--Problem No - Problem Name
+			|--Problem No - Problem Name\
 				|
-				|--Accepted Solution(Latest)
---**Only Supports C++ submissions**
+				|--Accepted Solution(Latest)\
+--**Only Supports C++ submissions**\
 
 
 ## Features to be added
---**Upload to Github Repo**
+--**Upload to Github Repo**\
