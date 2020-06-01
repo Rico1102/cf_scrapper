@@ -11,7 +11,15 @@ pip install -r requirements.txt
 ```
 
 To run the scrapper
+
 ```bash
+git clone https://github.com/Rico1102/cf_scrapper
+cd cf_scrapper
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+run
 python cf_scrapper.py
 ```
 
