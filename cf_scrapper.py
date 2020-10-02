@@ -1,7 +1,7 @@
 import os
 import requests
 import re
-
+import subprocess
 
 from bs4 import BeautifulSoup
 from git import Repo
@@ -120,6 +120,12 @@ def get_max_pageno(url):
     for page_index in page_indexes:
         max_index = page_index.get_text()
     return max_index
+def add_to_github():
+    message = input("enter the commit message")
+    subprocess.Popen(["git", "add","."])
+    subprocess.Popen(["git","commit","-m",message])
+    subprocess.Popen(["git","push"])
+
 
 
 def main():
