@@ -35,8 +35,10 @@ python cf_scrapper.py
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Problem No - Problem Name\
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|\
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--Accepted Solution(Latest)\
+--**Upload to Github Repo**
 --**Only Supports C++ submissions**
 
 
-## Features to be added
+## Features to be tested
 --**Upload to Github Repo**
+

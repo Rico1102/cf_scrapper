@@ -2,7 +2,6 @@ import os
 import requests
 import re
 
-
 from bs4 import BeautifulSoup
 from git import Repo
 
@@ -120,6 +119,18 @@ def get_max_pageno(url):
     for page_index in page_indexes:
         max_index = page_index.get_text()
     return max_index
+def add_to_github():
+    message = input("enter the commit message : ")
+    os.system("git pull")
+    os.system("git add *")
+    print("file added")
+    os.system('git commit -a -m '+'"'+message+'"')
+    print("file commited","git commit -m "+"'"+message+"'")
+    os.system("git push")
+    print("file pushed")
+
+def testing_modification():
+    print("this is done for testing")
 
 
 def main():
@@ -152,6 +163,7 @@ def main():
         find_accepted_solutions(soup , list_of_ids , file)
 
     file.close()
+    add_to_github()
 
 
 if __name__ == "__main__":
